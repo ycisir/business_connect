@@ -5,6 +5,5 @@ class SearchController < ApplicationController
     else
       @query = "None"
     end
-    
   end
 end

@@ -64,3 +64,4 @@ end
 
 gem "dartsass-rails"
 gem "bootstrap", "~> 5.3.3"
+gem "friendly_id", "~> 5.6"
