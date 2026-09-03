@@ -3,13 +3,15 @@ class Offer < ApplicationRecord
   enum :offer_type, {
     discount: 'discount',
     bogo: 'bogo',
-    free: 'free'
+    free: 'free',
+    endsoon: 'endsoon'
   }, validate: true
 
   # Helper for form selects
   OFFER_TYPES = [
     ['discount', 'Discount'],
     ['bogo', 'Buy 1 Get 1'],
-    ['free', 'Free Offer']
+    ['free', 'Free Offer'],
+    ['endsoon', 'Ending Soon']
   ].freeze
 end

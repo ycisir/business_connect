@@ -1,6 +1,23 @@
-<section>
-    <%= form_with url: search_path, method: :get, class: "search-form" do |form| %>
-      <%= form.text_field :query, value: params[:query], placeholder: "Search businesses..." %>
-      <%= form.submit "Search" %>
-    <% end %>
+<section class="py-3">
+  <%= form_with url: search_path, method: :get, class: "row g-2 align-items-center" do |form| %>
+    <div class="col-md-4">
+      <%= form.text_field :query, value: params[:query], placeholder: "Search businesses...", class: "form-control" %>
+    </div>
+
+    <div class="col-md-2">
+      <%= select_tag :category, options_from_collection_for_select(Category.all, :slug, :name, params[:category]), include_blank: "All Categories", class: "form-select" %>
+    </div>
+
+    <div class="col-md-2">
+      <%= select_tag :area, options_from_collection_for_select(Area.all, :slug, :name, params[:area]), include_blank: "All Areas", class: "form-select" %>
+    </div>
+
+    <div class="col-md-2">
+      <%= select_tag :offer_type, options_for_select(Offer::OFFER_TYPES.map { |value, label| [label, value] }, params[:offer_type]), include_blank: "All Offers", class: "form-select" %>
+    </div>
+
+    <div class="col-md-2">
+      <%= form.submit "Search", class: "btn btn-success w-100" %>
+    </div>
+  <% end %>
 </section>
